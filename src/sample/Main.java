@@ -12,22 +12,23 @@ import javafx.stage.Stage;
 
 /**
  * @author Christopher Thorn
- * The main.java file holds information that works with the controller.java and the ProductLineDB. The file creates and initialize a working databsase
- * along with execution sql statements to the database
+ * The main.java file holds information that works with the controller.java and the ProductLineDB.
+ * The file creates and initialize a working databsase along with execution sql statements to the
+ * database.
  * 9/28/2019
  */
 public class Main extends Application {
 
   /**
-   * The Statement stmt is declared globally to be used in executing the SQL statement in the sqlExecute method.
+   * The Statement stmt is declared globally to be used in executing the SQL statement in the
+   * sqlExecute method.
    */
   private static Statement stmt;
 
   /**
    * The start method is the starting point of a JavaFX program. This start method sets the title.
-   * @param primaryStage
+   * @param primaryStage This is used to create the scene for the program to run.
    * @throws Exception any problem with the code.
-   * @brief
    */
 
   @Override
@@ -41,9 +42,9 @@ public class Main extends Application {
   }
 
   /**
-   * The sqlExecute method takes a string SQLStatement as an argument an executes an sql statement from data that was obtained in the GUI
-   * product Name and Manufacturer Textfield.
-   * @param SQLStatement
+   * The sqlExecute method takes a string SQLStatement as an argument an executes an sql statement
+   * from data that was obtained in the GUi product Name and Manufacturer Textfield.
+   * @param SQLStatement The users manufacturer and name selection.
    */
   public static void sqlExecute(String SQLStatement) {
     try {
@@ -79,7 +80,7 @@ public class Main extends Application {
 
   /**
    * The main method is empty for now but will eventually contain information.
-   * @param args
+   * @param args an argument.
    */
   public static void main(String[] args) {
     launch(args);
