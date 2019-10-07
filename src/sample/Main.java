@@ -19,6 +19,7 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 
+  
   /**
    * The Statement stmt is declared globally to be used in executing the SQL statement in the
    * sqlExecute method.
@@ -37,7 +38,9 @@ public class Main extends Application {
     initializeDB();
     Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
     primaryStage.setTitle("Product Line Tracker");
+    //Scene scene = new Scene(root,400,250);
     primaryStage.setScene(new Scene(root, 400, 300));
+    root.getStylesheets().addAll("styles.css");
     primaryStage.show();
   }
 
@@ -85,4 +88,5 @@ public class Main extends Application {
   public static void main(String[] args) {
     launch(args);
   }
+
 }

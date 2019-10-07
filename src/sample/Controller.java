@@ -19,7 +19,7 @@ public class Controller {
   private TextField TextFieldManufacturer;
 
   @FXML
-  private ChoiceBox<?> ChoiceBoxItemType;
+  private ChoiceBox<ItemType> ChoiceBoxItemType;
 
   @FXML
   private Button btnAddProduct;
@@ -65,7 +65,7 @@ public class Controller {
         "10");
     ComboBoxChooseQuantity.getSelectionModel().selectFirst();
     ComboBoxChooseQuantity.setEditable(true);
-
+    ChoiceBoxItemType.getItems().setAll(ItemType.values());
   }
 }
 
