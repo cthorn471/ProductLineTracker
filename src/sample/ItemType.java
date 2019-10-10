@@ -7,4 +7,7 @@ public enum ItemType {
     ItemType(String code){
         this.code = code;
     }
+    public String getType(){
+        return code;
+    }
 }

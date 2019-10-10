@@ -42,15 +42,15 @@ public class Controller {
    * @param mouseEvent allows the button click action to occur.
    */
   public void display(javafx.scene.input.MouseEvent mouseEvent) {
+  ItemType test = ChoiceBoxItemType.getValue();
 
-    String SQLStatement = "INSERT INTO Product(type, manufacturer, name) VALUES ('AUDIO', "
+    String SQLStatement = "INSERT INTO PRODUCT(Type, Manufacturer, Name) VALUES ('" + test.getType() + "', "
         + "'"
         + TextFieldManufacturer.getText()
         + "', '"
         + TextFieldProductName.getText()
         + "')";
 
-    //System.out.print(SQLStatement);
     //pass the sql statement from SQLStatement to  the method sqlExecute in Main.
     Main.sqlExecute(SQLStatement);
   }

@@ -37,4 +37,10 @@ abstract class Product implements Item {
     public void setName(String name){
         Name = name;
     }
+
+    class widget extends Product{
+        public widget(String name, String manufacturer, String type){
+            super(name,manufacturer,type);
+        }
+    }
 }

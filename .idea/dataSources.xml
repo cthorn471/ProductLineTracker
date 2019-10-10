@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="ProductLineDB" uuid="2962ae94-3310-4010-a3e9-41cdb7fcb3f6">
+    <data-source source="LOCAL" name="ProductLineDB" uuid="d480ac00-df0a-40de-b417-258d75f5ea9a">
       <driver-ref>h2.unified</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.h2.Driver</jdbc-driver>
-      <jdbc-url>jdbc:h2:$USER_HOME$/Downloads/ProductLineTracker-master/ProductLineTracker-master/res/ProductLineDB</jdbc-url>
+      <jdbc-url>jdbc:h2:$PROJECT_DIR$/res/ProductLineDB</jdbc-url>
     </data-source>
   </component>
 </project>

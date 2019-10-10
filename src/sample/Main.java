@@ -3,6 +3,8 @@ package sample;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.util.ArrayList;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -39,8 +41,7 @@ public class Main extends Application {
     Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
     primaryStage.setTitle("Product Line Tracker");
     //Scene scene = new Scene(root,400,250);
-    primaryStage.setScene(new Scene(root, 400, 300));
-    root.getStylesheets().addAll("styles.css");
+    primaryStage.setScene(new Scene(root, 640, 600));
     primaryStage.show();
   }
 
@@ -80,6 +81,10 @@ public class Main extends Application {
       ex.printStackTrace();
     }//end try catch
   }//end method initializeDB
+
+
+    //create a collection called productLine
+    ArrayList <Product> productLine = new ArrayList<Product>();
 
   /**
    * The main method is empty for now but will eventually contain information.
