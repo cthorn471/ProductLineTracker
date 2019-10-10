@@ -1,6 +1,6 @@
 package sample;
 
-abstract class Product implements Item {
+abstract class Product implements Item,{
 
     private int Id;
     private String Type;

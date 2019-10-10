@@ -8,7 +8,7 @@ class AudioPlayer extends Product implements MultimediaControl {
 
     @Override
     public void play() {
-
+    System.out.println("Playing");
     }
 
     @Override
@@ -27,10 +27,13 @@ class AudioPlayer extends Product implements MultimediaControl {
     }
 
     //AudioPlayer constructor
-   /public AudioPlayer(String name, String manufacturer,String supportedAudioFormats,String supportedPlaylistFormats){
-        super(name, manufacturer, supportedAudioFormats, supportedPlaylistFormats);
+   public AudioPlayer(String name, String manufacturer,String supportedAudioFormats,String supportedPlaylistFormats){
+        super(name, manufacturer, "AUDIO");
+        this.supportedAudioFormats = supportedAudioFormats;
+        this.supportedPlaylistFormats = supportedAudioFormats;
 
-}
 
     }
+
 }
+
