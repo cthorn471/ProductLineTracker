@@ -6,7 +6,6 @@ package OOP_Project;
  * @author Christopher Thorn
  */
 abstract class Product implements Item {
-//private variables
     private int Id;
     private ItemType type;
     private String manufacturer;
