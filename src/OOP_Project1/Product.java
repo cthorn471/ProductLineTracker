@@ -1,4 +1,4 @@
-package OOP_Project;
+package OOP_Project1;
 
 /**
  * Product class is declared abstract and is used to declare all the generic attributes of a product(Id, type, name,
@@ -6,7 +6,7 @@ package OOP_Project;
  * @author Christopher Thorn
  */
 abstract class Product implements Item {
-
+//private variables
     private int Id;
     private ItemType type;
     private String manufacturer;

@@ -1,4 +1,4 @@
-package OOP_Project;
+package OOP_Project1;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,4 +1,4 @@
-package OOP_Project;
+package OOP_Project1;
 
 /**
  * Class Screen implements ScreenSpec and fills in its method bodies.Then it creates a constructor called Screen which

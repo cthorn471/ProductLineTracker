@@ -1,4 +1,4 @@
-package OOP_Project;
+package OOP_Project1;
 
 /**
  * The Item interface declares 5 methods that we implement in our product class.

@@ -1,4 +1,4 @@
-package OOP_Project;
+package OOP_Project1;
 
 /**
  * This interface declares 4 methods and is implemented in MultimediaControl.

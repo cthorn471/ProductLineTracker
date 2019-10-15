@@ -1,6 +1,6 @@
 //make sure to do ANALYZE AND THEN INSPECT CODE to check for my grade before submitting
 //file -> settings -> plugins -> download findbugs
-package OOP_Project;
+package OOP_Project1;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

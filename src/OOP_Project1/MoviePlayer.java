@@ -1,4 +1,4 @@
-package OOP_Project;
+package OOP_Project1;
 
 /**
  * The MoviePlayer class inherits Product and implements the methods from MultimediaControl who's body are filled in
