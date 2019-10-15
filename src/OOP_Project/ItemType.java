@@ -1,4 +1,4 @@
-package OOP_Project1;
+package OOP_Project;
 
 /**
  * Enum ItemType declares the 4 types of products we will be storing to our database.

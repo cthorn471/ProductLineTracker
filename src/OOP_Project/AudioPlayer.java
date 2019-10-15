@@ -1,4 +1,4 @@
-package OOP_Project1;
+package OOP_Project;
 
 /**
  * The AudioPlayer class holds the 4 methods that are unique to all Audio Players. Along with a constructor called

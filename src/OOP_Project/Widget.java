@@ -1,4 +1,4 @@
-package OOP_Project1;
+package OOP_Project;
 
 /**
  * Class widget was used to test during issue 1.

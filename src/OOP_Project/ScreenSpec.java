@@ -1,4 +1,4 @@
-package OOP_Project1;
+package OOP_Project;
 
 /**
  * The interface ScreenSpec declares 3 methods that will be implemented in class Screen.

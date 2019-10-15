@@ -1,4 +1,4 @@
-package OOP_Project1;
+package OOP_Project;
 
 /**
  * Product class is declared abstract and is used to declare all the generic attributes of a product(Id, type, name,
