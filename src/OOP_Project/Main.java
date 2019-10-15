@@ -1,31 +1,28 @@
-package sample;
+package OOP_Project;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
 /**
- * @author Christopher Thorn
  * The main.java file holds information that works with the controller.java and the ProductLineDB.
- * The file creates and initialize a working databsase along with execution sql statements to the
+ * The file creates and initialize a working database along with execution sql statements to the
  * database.
- * 9/28/2019
+ *@author Christopher Thorn
  */
-public class Main extends Application {
 
-  
+public class Main extends Application {
   /**
    * The Statement stmt is declared globally to be used in executing the SQL statement in the
    * sqlExecute method.
    */
+
   private static Statement stmt;
 
   /**
@@ -40,7 +37,6 @@ public class Main extends Application {
     initializeDB();
     Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
     primaryStage.setTitle("Product Line Tracker");
-    //Scene scene = new Scene(root,400,250);
     primaryStage.setScene(new Scene(root, 640, 600));
     primaryStage.show();
   }
@@ -50,6 +46,7 @@ public class Main extends Application {
    * from data that was obtained in the GUi product Name and Manufacturer Textfield.
    * @param SQLStatement The users manufacturer and name selection.
    */
+
   public static void sqlExecute(String SQLStatement) {
     try {
       stmt.executeUpdate(SQLStatement);
@@ -62,8 +59,8 @@ public class Main extends Application {
   /**
    * The initializeDB method creates a connection to the database and sets the credentials.
    */
-  private void initializeDB() {
 
+  private void initializeDB() {
     final String JDBC_DRIVER = "org.h2.Driver";
     final String DB_URL = "jdbc:h2:./res/ProductLineDB";
 
@@ -90,8 +87,8 @@ public class Main extends Application {
    * The main method is empty for now but will eventually contain information.
    * @param args an argument.
    */
-  public static void main(String[] args) {
-    launch(args);
-  }
 
+  public static void main(String[] args) {
+      launch(args);
+  }
 }
