@@ -22,7 +22,7 @@ public enum ItemType {
      * Method getType returns variable code and is used to get the type that the user chooses from our GUI.
      * @return the variable code.
      */
-    public String getType(){
+    public String getCode(){
 
         return code;
     }

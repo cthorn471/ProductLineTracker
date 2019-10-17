@@ -4,8 +4,14 @@ package OOP_Project;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
+import java.awt.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *The controller class holds all the values from the objects being used in the GUI.
@@ -34,6 +40,10 @@ public class Controller {
   @FXML
   private Button btnRecordProduction;
 
+  @FXML
+  private TextArea ProductLogTextArea;
+
+
   /**
    * The display method executes a button click mouse event when the "Add Product" button on the
    * Product Line tab is pushed. Once the button is pushed all information in Product Name and
@@ -46,7 +56,7 @@ public class Controller {
   public void display(javafx.scene.input.MouseEvent mouseEvent) {
     ItemType test = ChoiceBoxItemType.getValue();
 
-    String SQLStatement = "INSERT INTO PRODUCT(Type, Manufacturer, Name) VALUES ('" + test.getType() + "', "
+    String SQLStatement = "INSERT INTO PRODUCT(Type, Manufacturer, Name) VALUES ('" + test.getCode() + "', "
             + "'"
             + TextFieldManufacturer.getText()
             + "', '"
@@ -68,7 +78,15 @@ public class Controller {
     ComboBoxChooseQuantity.getSelectionModel().selectFirst();
     ComboBoxChooseQuantity.setEditable(true);
     ChoiceBoxItemType.getItems().setAll(ItemType.values());
+    ChoiceBoxItemType.getSelectionModel().selectFirst();
     testMultimedia();
+
+    /**
+     * (ONLY TEMPORARY) VARIABLE PR of object ProductRecord used with ProductRecord methods toString method to display
+     * output..
+     */
+    ProductionRecord PR = new ProductionRecord(0,2, "0", new Date());
+    ProductLogTextArea.setText(PR.toString());
   }
 
   public static void testMultimedia() {

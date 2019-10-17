@@ -51,4 +51,8 @@ abstract class Product implements Item {
     public void setName(String name){
         this.name = name;
     }
+
+    public ItemType getType(){
+        return type;
+    }
 }
