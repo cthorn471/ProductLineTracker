@@ -2,14 +2,18 @@
 //file -> settings -> plugins -> download findbugs
 package OOP_Project;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import sun.dc.pr.PRError;
 
-import java.awt.*;
+import javax.xml.soap.Text;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -17,7 +21,7 @@ import java.util.Date;
  *The controller class holds all the values from the objects being used in the GUI.
  *@author Christopher Thorn
  */
-public class Controller {
+public class ProductionTabController extends Main {
 
   @FXML
   private TextField TextFieldProductName;
@@ -43,6 +47,17 @@ public class Controller {
   @FXML
   private TextArea ProductLogTextArea;
 
+  @FXML
+  private TableView<Product> tableview;
+
+  @FXML
+  private TableColumn<String, Product> columnName;
+
+  @FXML
+  private TableColumn<String, Product> columnManufacturer;
+
+  @FXML
+  private TableColumn<String, Product> columnType;
 
   /**
    * The display method executes a button click mouse event when the "Add Product" button on the
@@ -54,17 +69,24 @@ public class Controller {
    * @param mouseEvent allows the button click action to occur.
    */
   public void display(javafx.scene.input.MouseEvent mouseEvent) {
-    ItemType test = ChoiceBoxItemType.getValue();
+    ItemType grabItemType = ChoiceBoxItemType.getValue();
 
-    String SQLStatement = "INSERT INTO PRODUCT(Type, Manufacturer, Name) VALUES ('" + test.getCode() + "', "
+    String SQLStatement = "INSERT INTO PRODUCT(Type, Manufacturer, Name) VALUES ('" + grabItemType.getCode() + "', "
             + "'"
             + TextFieldManufacturer.getText()
             + "', '"
             + TextFieldProductName.getText()
             + "')";
 
+    Widget addProduct = new Widget(TextFieldProductName.getText(), TextFieldManufacturer.getText(),grabItemType);
+    productLine.add(addProduct);
+
     //pass the sql statement from SQLStatement to  the method sqlExecute in Main.
     Main.sqlExecute(SQLStatement);
+
+    System.out.println("this is the arrayList \n" + productLine.toString()  );
+    tableview.getItems().addAll(addProduct);
+
   }
 
   /**
@@ -85,26 +107,43 @@ public class Controller {
      * (ONLY TEMPORARY) VARIABLE PR of object ProductRecord used with ProductRecord methods toString method to display
      * output..
      */
-    ProductionRecord PR = new ProductionRecord(0,2, "0", new Date());
+    ProductionRecord PR = new ProductionRecord(0, 2, "0", new Date());
     ProductLogTextArea.setText(PR.toString());
+
+    /**
+     *
+     */
+    ObservableList<Product> productList = productList();
+    columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
+    columnManufacturer.setCellValueFactory(new PropertyValueFactory<>("manufacturer"));
+    columnType.setCellValueFactory(new PropertyValueFactory<>("type"));
+    tableview.setItems(productList);
+
   }
 
-  public static void testMultimedia() {
-    AudioPlayer newAudioProduct = new AudioPlayer("DP-X1A", "Onkyo",
-            "DSD/FLAC/ALAC/WAV/AIFF/MQA/Ogg-Vorbis/MP3/AAC", "M3U/PLS/WPL");
-    Screen newScreen = new Screen("720x480", 40, 22);
-    MoviePlayer newMovieProduct = new MoviePlayer("DBPOWER MK101", "OracleProduction", newScreen,
-            MonitorType.LCD);
-    ArrayList<MultimediaControl> productList = new ArrayList<MultimediaControl>();
-    productList.add(newAudioProduct);
-    productList.add(newMovieProduct);
-    for (MultimediaControl p : productList) {
-      System.out.println(p);
-      p.play();
-      p.stop();
-      p.next();
-      p.previous();
-    }
+//method to declare my observable list
+   ObservableList<Product> productList(){
+    return FXCollections.observableArrayList(productLine);
+
   }
-}
+
+    public static void testMultimedia () {
+      AudioPlayer newAudioProduct = new AudioPlayer("DP-X1A", "Onkyo",
+              "DSD/FLAC/ALAC/WAV/AIFF/MQA/Ogg-Vorbis/MP3/AAC", "M3U/PLS/WPL");
+      Screen newScreen = new Screen("720x480", 40, 22);
+      MoviePlayer newMovieProduct = new MoviePlayer("DBPOWER MK101", "OracleProduction", newScreen,
+              MonitorType.LCD);
+      ArrayList<MultimediaControl> productList = new ArrayList<MultimediaControl>();
+      productList.add(newAudioProduct);
+      productList.add(newMovieProduct);
+      for (MultimediaControl p : productList) {
+        System.out.println(p);
+        p.play();
+        p.stop();
+        p.next();
+        p.previous();
+      }
+    }
+
+    }
 

@@ -25,4 +25,8 @@
     -fx-text-fill: black;
 }
 
+.table-view .column-header .label{
+    -fx-text-fill: black;
+}
+
 

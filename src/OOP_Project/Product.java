@@ -5,7 +5,7 @@ package OOP_Project;
  * manufacturer).
  * @author Christopher Thorn
  */
-abstract class Product implements Item {
+public abstract class Product implements Item {
     private int Id;
     private ItemType type;
     private String manufacturer;
@@ -31,6 +31,7 @@ abstract class Product implements Item {
         return "\nName: "+ name + "\nManufacturer: "+ manufacturer + "\ntype: "
                 + type;
     }
+
 
     public int getId(){
         return Id;

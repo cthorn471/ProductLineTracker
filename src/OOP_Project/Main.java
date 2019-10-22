@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -25,6 +27,10 @@ public class Main extends Application {
 
   private static Statement stmt;
 
+  //create a arrayList called productLine to hold all the products.
+  public ArrayList<Product> productLine = new ArrayList<Product>();
+
+
   /**
    * The start method is the starting point of a JavaFX program. This start method sets the title.
    * @param primaryStage This is used to create the scene for the program to run.
@@ -35,7 +41,7 @@ public class Main extends Application {
   public void start(Stage primaryStage) throws Exception {
     //establish database connection
     initializeDB();
-    Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("Productiontab.fxml"));
     primaryStage.setTitle("Product Line Tracker");
     primaryStage.setScene(new Scene(root, 640, 600));
     primaryStage.show();
@@ -68,20 +74,19 @@ public class Main extends Application {
     final String USER = "";
     final String PASS = "";
     Connection conn = null;
+    System.out.println("Attempting to connect to database");
 
     try {
       Class.forName(JDBC_DRIVER);
       conn = DriverManager.getConnection(DB_URL, USER, PASS);
       stmt = conn.createStatement();
+      System.out.println("Successfully connected to database");
 
     } catch (Exception ex) {
       ex.printStackTrace();
+
     }//end try catch
   }//end method initializeDB
-
-
-    //create a collection called productLine
-    ArrayList <Product> productLine = new ArrayList<Product>();
 
   /**
    * The main method is empty for now but will eventually contain information.

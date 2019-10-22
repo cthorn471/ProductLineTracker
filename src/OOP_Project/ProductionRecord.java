@@ -55,7 +55,8 @@ public class ProductionRecord {
         this.serialNumber = serialNumber;
         this.dateProduced = dateProduced;
     }
-    //overloaded constructor issue 5
+
+    //overloaded constructor issue 5 to set a unique serial number
     ProductionRecord(Product productObject, int countItems){
         serialNumber = (productObject.getManufacturer().substring(0, 3) + productObject.getType().getCode() +
                 String.format("%05d", countItems));
