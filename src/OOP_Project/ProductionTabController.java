@@ -68,7 +68,7 @@ public class ProductionTabController extends Main {
    *
    * @param mouseEvent allows the button click action to occur.
    */
-  public void display(javafx.scene.input.MouseEvent mouseEvent) {
+  public void handleAddProduct(javafx.scene.input.MouseEvent mouseEvent) {
     ItemType grabItemType = ChoiceBoxItemType.getValue();
 
     String SQLStatement = "INSERT INTO PRODUCT(Type, Manufacturer, Name) VALUES ('" + grabItemType.getCode() + "', "
@@ -85,6 +85,8 @@ public class ProductionTabController extends Main {
     Main.sqlExecute(SQLStatement);
 
     System.out.println("this is the arrayList \n" + productLine.toString()  );
+    System.out.println("this is the observable list \n" + productList().toString()  );
+
     tableview.getItems().addAll(addProduct);
 
   }
@@ -111,17 +113,12 @@ public class ProductionTabController extends Main {
     ProductLogTextArea.setText(PR.toString());
 
     /**
-     *
+     *call to our method which sets the columns and does the cellValueFactory.
      */
-    ObservableList<Product> productList = productList();
-    columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
-    columnManufacturer.setCellValueFactory(new PropertyValueFactory<>("manufacturer"));
-    columnType.setCellValueFactory(new PropertyValueFactory<>("type"));
-    tableview.setItems(productList);
-
+      setupProductLineTable();
   }
 
-//method to declare my observable list
+//sets the observable list = to the array list
    ObservableList<Product> productList(){
     return FXCollections.observableArrayList(productLine);
 
@@ -145,5 +142,16 @@ public class ProductionTabController extends Main {
       }
     }
 
+    /**
+     * method which holds the Observable list and also sets the call factory values along with setting the columns.
+     */
+    public void setupProductLineTable(){
+        ObservableList<Product> productList = productList();
+        columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        columnManufacturer.setCellValueFactory(new PropertyValueFactory<>("manufacturer"));
+        columnType.setCellValueFactory(new PropertyValueFactory<>("type"));
+        tableview.setItems(productList);
     }
+
+}
 

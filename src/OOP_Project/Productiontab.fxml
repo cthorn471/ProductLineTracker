@@ -54,9 +54,9 @@
       </GridPane>
       <TableView fx:id="tableview" layoutX="13.0" layoutY="189.0" prefHeight="172.0" prefWidth="556.0">
         <columns>
-          <TableColumn fx:id="columnName" prefWidth="170.0" text="Name" />
-          <TableColumn fx:id="columnManufacturer" prefWidth="189.0" text="Manufacturere" />
-               <TableColumn fx:id="columnType" prefWidth="196.0" text="Type" />
+          <TableColumn fx:id="columnName" prefWidth="170.0" styleClass="columns" text="Name" />
+          <TableColumn fx:id="columnManufacturer" prefWidth="189.0" styleClass="columns" text="Manufacturere" />
+               <TableColumn fx:id="columnType" prefWidth="196.0" styleClass="columns" text="Type" />
         </columns>
       </TableView>
       <Label layoutX="6.0" layoutY="165.0" text="Existing Products">
@@ -64,7 +64,7 @@
           <Insets right="10.0" />
         </padding>
       </Label>
-      <Button fx:id="btnAddProduct" layoutX="453.0" layoutY="145.0" mnemonicParsing="false" onMouseClicked="#display" prefHeight="25.0" prefWidth="109.0" text="Add Product" />
+      <Button fx:id="btnAddProduct" layoutX="453.0" layoutY="145.0" mnemonicParsing="false" onMouseClicked="#handleAddProduct" prefHeight="25.0" prefWidth="109.0" text="Add Product" />
       <Label fx:id="TestLabel" layoutX="508.0" layoutY="111.0" prefHeight="17.0" prefWidth="70.0" />
     </AnchorPane>
   </Tab>
