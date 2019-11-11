@@ -13,16 +13,18 @@ public enum ItemType {
      * declares a local variable String code.
      * constructor ItemType accepts code as a parameter and sets this.code = to the parameter code that was passed in.
      */
-    public String code;
-    ItemType(String code){
+    private String code;
+
+    ItemType(String code) {
         this.code = code;
     }
 
     /**
      * Method getType returns variable code and is used to get the type that the user chooses from our GUI.
+     *
      * @return the variable code.
      */
-    public String getCode(){
+    public String getCode() {
 
         return code;
     }

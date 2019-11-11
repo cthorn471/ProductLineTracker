@@ -5,7 +5,10 @@ package OOP_Project;
  */
 public interface MultimediaControl {
     void play();
+
     void stop();
+
     void previous();
+
     void next();
 }

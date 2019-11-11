@@ -5,8 +5,6 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,84 +14,89 @@ import javafx.stage.Stage;
  * The main.java file holds information that works with the controller.java and the ProductLineDB.
  * The file creates and initialize a working database along with execution sql statements to the
  * database.
- *@author Christopher Thorn
+ *
+ * @author Christopher Thorn
  */
 
 public class Main extends Application {
-  /**
-   * The Statement stmt is declared globally to be used in executing the SQL statement in the
-   * sqlExecute method.
-   */
+    /**
+     * The Statement stmt is declared globally to be used in executing the SQL statement in the
+     * sqlExecute method.
+     */
 
-  private static Statement stmt;
+    private static Statement stmt;
 
-  //create a arrayList called productLine to hold all the products.
-  public ArrayList<Product> productLine = new ArrayList<Product>();
+    /**
+     * create a arrayList called productLine to hold all the products.
+     */
+    public ArrayList<Product> productLine = new ArrayList<>();
 
+    /**
+     * The start method is the starting point of a JavaFX program. This start method sets the title.
+     *
+     * @param primaryStage This is used to create the scene for the program to run.
+     * @throws Exception any problem with the code.
+     */
 
-  /**
-   * The start method is the starting point of a JavaFX program. This start method sets the title.
-   * @param primaryStage This is used to create the scene for the program to run.
-   * @throws Exception any problem with the code.
-   */
-
-  @Override
-  public void start(Stage primaryStage) throws Exception {
-    //establish database connection
-    initializeDB();
-    Parent root = FXMLLoader.load(getClass().getResource("Productiontab.fxml"));
-    primaryStage.setTitle("Product Line Tracker");
-    primaryStage.setScene(new Scene(root, 640, 600));
-    primaryStage.show();
-  }
-
-  /**
-   * The sqlExecute method takes a string SQLStatement as an argument an executes an sql statement
-   * from data that was obtained in the GUi product Name and Manufacturer Textfield.
-   * @param SQLStatement The users manufacturer and name selection.
-   */
-
-  public static void sqlExecute(String SQLStatement) {
-    try {
-      stmt.executeUpdate(SQLStatement);
-      System.out.println(SQLStatement);
-    } catch (Exception ex) {
-      ex.printStackTrace();
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        //establish database connection
+        initializeDB();
+        Parent root = FXMLLoader.load(getClass().getResource("Productiontab.fxml"));
+        primaryStage.setTitle("Product Line Tracker");
+        primaryStage.setScene(new Scene(root, 640, 600));
+        primaryStage.show();
     }
-  }
 
-  /**
-   * The initializeDB method creates a connection to the database and sets the credentials.
-   */
+    /**
+     * The sqlExecute method takes a string SQLStatement as an argument an executes an sql statement
+     * from data that was obtained in the GUi product Name and Manufacturer Textfield.
+     *
+     * @param SQLStatement The users manufacturer and name selection.
+     */
 
-  private void initializeDB() {
-    final String JDBC_DRIVER = "org.h2.Driver";
-    final String DB_URL = "jdbc:h2:./res/ProductLineDB";
+    static void sqlExecute(String SQLStatement) {
+        try {
+            stmt.executeUpdate(SQLStatement);
+            System.out.println(SQLStatement);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
-    //  Database credentials
-    final String USER = "";
-    final String PASS = "";
-    Connection conn = null;
-    System.out.println("Attempting to connect to database");
+    /**
+     * The initializeDB method creates a connection to the database and sets the credentials.
+     */
 
-    try {
-      Class.forName(JDBC_DRIVER);
-      conn = DriverManager.getConnection(DB_URL, USER, PASS);
-      stmt = conn.createStatement();
-      System.out.println("Successfully connected to database");
+    private void initializeDB() {
+        final String JDBC_DRIVER = "org.h2.Driver";
+        final String DB_URL = "jdbc:h2:./res/ProductLineDB";
 
-    } catch (Exception ex) {
-      ex.printStackTrace();
+        //  Database credentials
+        final String USER = "";
+        final String PASS = "";
+        Connection conn = null;
+        System.out.println("Attempting to connect to database");
 
-    }//end try catch
-  }//end method initializeDB
+        try {
+            Class.forName(JDBC_DRIVER);
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            stmt = conn.createStatement();
+            System.out.println("Successfully connected to database");
 
-  /**
-   * The main method is empty for now but will eventually contain information.
-   * @param args an argument.
-   */
+        } catch (Exception ex) {
+            ex.printStackTrace();
 
-  public static void main(String[] args) {
-      launch(args);
-  }
+        }//end try catch
+    }//end method initializeDB
+
+    /**
+     * The main method is empty for now but will eventually contain information.
+     *
+     * @param args an argument.
+     */
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 }
