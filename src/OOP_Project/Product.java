@@ -7,7 +7,7 @@ package OOP_Project;
  * @author Christopher Thorn
  */
 public abstract class Product implements Item {
-    private int Id;
+    private int id;
     private ItemType type;
     private String manufacturer;
     private String name;
@@ -19,7 +19,8 @@ public abstract class Product implements Item {
      * @param manufacturer The company who makes the product.
      * @param type         The type of product that it is.
      */
-    Product(String name, String manufacturer, ItemType type) {
+    Product(int id, String name, String manufacturer, ItemType type) {
+        this.id = id;
         this.name = name;
         this.manufacturer = manufacturer;
         this.type = type;
@@ -35,8 +36,14 @@ public abstract class Product implements Item {
                 + type;
     }
 
+    Product(String name, String manufacturer, ItemType type) {
+        this.name = name;
+        this.manufacturer = manufacturer;
+        this.type = type;
+    }
+
     public int getId() {
-        return Id;
+        return id;
     }
 
     public String getManufacturer() {

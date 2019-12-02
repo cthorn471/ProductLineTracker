@@ -1,9 +1,12 @@
 package OOP_Project;
 
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Properties;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -68,13 +71,21 @@ public class Main extends Application {
      * The initializeDB method creates a connection to the database and sets the credentials.
      */
 
-    private void initializeDB() {
+    public static Connection initializeDB() {
         final String JDBC_DRIVER = "org.h2.Driver";
         final String DB_URL = "jdbc:h2:./res/ProductLineDB";
 
         //  Database credentials
         final String USER = "";
-        final String PASS = "";
+        final String PASS = "1234";
+        try {
+            Properties prop = new Properties();
+            prop.load((new FileInputStream("res/properties")));
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+
+        }
         Connection conn = null;
         System.out.println("Attempting to connect to database");
 
@@ -88,6 +99,7 @@ public class Main extends Application {
             ex.printStackTrace();
 
         }//end try catch
+        return conn;
     }//end method initializeDB
 
     /**

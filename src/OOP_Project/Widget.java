@@ -6,7 +6,7 @@ package OOP_Project;
  * @author Christopher Thorn
  */
 class Widget extends Product {
-    public Widget(String name, String manufacturer, ItemType type) {
-        super(name, manufacturer, type);
+    public Widget(int id,String name, String manufacturer, ItemType type) {
+        super(id,name, manufacturer, type);
     }
 }

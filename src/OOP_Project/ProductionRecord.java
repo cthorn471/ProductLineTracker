@@ -12,7 +12,7 @@ public class ProductionRecord {
     private int productID;
     private String serialNumber;
     private Date dateProduced;
-    private int countItems;
+    private String productName;
 
     public int getProductNumber() {
         return productNumber;
@@ -46,6 +46,14 @@ public class ProductionRecord {
         this.dateProduced = dateProduced;
     }
 
+    public String getProductionName() {
+        return productName;
+    }
+
+    public void setProductionName(String productName) {
+        this.productName = productName;
+    }
+
     ProductionRecord(int productID) {
         this.productID = productID;
         productNumber = 0;
@@ -55,10 +63,11 @@ public class ProductionRecord {
 
     /**
      * Constructor that accepts 4 variables as arguments in order to be used in displaying the products information.
+     *
      * @param productNumber the number in which the product is produced.
-     * @param productID The unique ID given to the product.
-     * @param serialNumber A unique serial number given to the product.
-     * @param dateProduced When the product was produced.
+     * @param productID     The unique ID given to the product.
+     * @param serialNumber  A unique serial number given to the product.
+     * @param dateProduced  When the product was produced.
      */
     ProductionRecord(int productNumber, int productID, String serialNumber, Date dateProduced) {
         this.productID = productID;
@@ -69,21 +78,25 @@ public class ProductionRecord {
 
     /**
      * Here we overload the Production Record constructor so we can set a unique serial number for every product.
+     *
      * @param productObject an object of type Product to be able to get the Type.
-     * @param countItems variable used to count how many items.
+     * @param countItems    variable used to count how many items.
      */
     ProductionRecord(Product productObject, int countItems) {
         serialNumber = (productObject.getManufacturer().substring(0, 3) + productObject.getType().getCode() +
                 String.format("%05d", countItems));
         dateProduced = new Date();
+        productName = productObject.getName();
     }
 
     /**
      * Display the info to the user.
+     *
      * @return returns the printed out statement to the screen.
      */
     public String toString() {
-        return "Prod. Num: " + productNumber + "\tProduct ID: " + productID + "\tSerial Num: " + serialNumber +
+        return "\nProd. Num: " + productNumber + "\tProduct Name: " + productName + "\tSerial Num: " +  serialNumber +
                 "\tDate: " + dateProduced;
     }
+
 }
