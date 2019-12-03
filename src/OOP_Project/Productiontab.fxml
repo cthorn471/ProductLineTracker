@@ -83,6 +83,21 @@
             <TextArea fx:id="ProductLogTextArea" layoutX="8.0" layoutY="72.0" prefHeight="282.0" prefWidth="582.0" />
         </AnchorPane>
     </Tab>
+   <Tab text="Employee">
+     <content>
+       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <children>
+               <Label layoutX="73.0" layoutY="34.0" text="First Name:" />
+               <Label layoutX="73.0" layoutY="76.0" text="Username:" />
+               <Label layoutX="73.0" layoutY="120.0" text="Email:" />
+               <TextField fx:id="FirstNameText" layoutX="210.0" layoutY="30.0" />
+               <TextField fx:id="UserNameText" layoutX="210.0" layoutY="72.0" />
+               <TextField fx:id="EmailText" layoutX="210.0" layoutY="116.0" />
+               <Button layoutX="465.0" layoutY="64.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="76.0" text="Logout" />
+            </children>
+         </AnchorPane>
+     </content>
+   </Tab>
     <stylesheets>
         <URL value="@styles.css" />
     </stylesheets>

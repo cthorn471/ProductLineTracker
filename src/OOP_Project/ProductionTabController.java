@@ -65,6 +65,14 @@ public class ProductionTabController extends Main {
     @FXML
     private TableColumn<String, Product> columnType;
 
+    @FXML
+    private TextField FirstNameText;
+
+    @FXML
+    private TextField UserNameText;
+
+    @FXML
+    private TextField EmailText;
 
     @FXML
     private ListView<Product> listProduce;
@@ -125,8 +133,8 @@ public class ProductionTabController extends Main {
     private void initialize() {
         ComboBoxChooseQuantity.getItems().addAll("1", "2", "3", "4", "5", "6", "7", "8", "9",
                 "10");
-        ComboBoxChooseQuantity.getSelectionModel().selectFirst();
         ComboBoxChooseQuantity.setEditable(true);
+        ComboBoxChooseQuantity.getSelectionModel().selectFirst();
         ChoiceBoxItemType.getItems().setAll(ItemType.values());
         ChoiceBoxItemType.getSelectionModel().selectFirst();
         testMultimedia();

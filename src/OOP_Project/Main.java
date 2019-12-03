@@ -45,7 +45,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         //establish database connection
         initializeDB();
-        Parent root = FXMLLoader.load(getClass().getResource("Productiontab.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ProductionL.fxml"));
         primaryStage.setTitle("Product Line Tracker");
         primaryStage.setScene(new Scene(root, 640, 600));
         primaryStage.show();
